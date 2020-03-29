@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WorkplaceBLL.DTO
 {
-    class WarehouseDTO
+    public class WarehouseDTO
     {
         public int Id { get; set; }
         public ProductDTO Product { get; set; }

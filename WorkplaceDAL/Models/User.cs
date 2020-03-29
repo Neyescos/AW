@@ -9,6 +9,6 @@ namespace WorkplaceDAL.Models
         public string Name { get; set; }
         public string Password { get; set; }
         public ICollection<Product> Products { get; set; }
-        public Role Role { get; set; }
+        public string Role { get; set; }
     }
 }

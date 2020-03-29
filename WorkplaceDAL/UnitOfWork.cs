@@ -6,6 +6,7 @@ using WorkplaceDAL.Interfaces;
 using WorkplaceDAL.Models;
 using WorkplaceDAL.Repositories;
 
+
 namespace WorkplaceDAL
 {
     public class UnitOfWork : IUnitOfWork
@@ -15,7 +16,7 @@ namespace WorkplaceDAL
         private IRepository<Product> productRepository;
         private IRepository<Image> imageRepository;
         private IRepository<Warehouse> warehouseRepository;
-        private IRepository<Role> roleRepository;
+        
         public IRepository<User> Users
         {
             get
@@ -49,17 +50,7 @@ namespace WorkplaceDAL
                 return imageRepository;
             }
         }
-        public IRepository<Role> Roles
-        {
-            get
-            {
-                if (roleRepository == null)
-                {
-                    roleRepository = new Repository<Role>(db);
-                }
-                return roleRepository;
-            }
-        }
+      
         public IRepository<Warehouse> Warehouses
         {
             get

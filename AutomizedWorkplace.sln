@@ -3,11 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29411.108
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutomizedWorkplace", "AutomizedWorkplace\AutomizedWorkplace.csproj", "{3942524E-9366-4FC4-83FA-5501FD100610}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutomizedWorkplace", "AutomizedWorkplace\AutomizedWorkplace.csproj", "{3942524E-9366-4FC4-83FA-5501FD100610}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkplaceDAL", "WorkplaceDAL\WorkplaceDAL.csproj", "{8C5E4F2D-0A9E-4656-9CA2-36CC82CE8DF2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkplaceDAL", "WorkplaceDAL\WorkplaceDAL.csproj", "{8C5E4F2D-0A9E-4656-9CA2-36CC82CE8DF2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkplaceBLL", "WorkplaceBLL\WorkplaceBLL.csproj", "{27070BB9-BF54-46B2-B4AD-A87659494CF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WorkplaceBLL", "WorkplaceBLL\WorkplaceBLL.csproj", "{27070BB9-BF54-46B2-B4AD-A87659494CF5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{8C5E4F2D-0A9E-4656-9CA2-36CC82CE8DF2} = {8C5E4F2D-0A9E-4656-9CA2-36CC82CE8DF2}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WorkplaceBLL.DTO
 {
-    class ImageDTO
+    public class ImageDTO
     {
         public int Id { get; set; }
         public string Url { get; set; }

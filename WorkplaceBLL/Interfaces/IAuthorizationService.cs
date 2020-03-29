@@ -6,11 +6,9 @@ using WorkplaceBLL.DTO;
 
 namespace WorkplaceBLL.Interfaces
 {
-    interface IUserServices
+    interface IAuthorizationService
     {
-        Task UpdateUser(UserDTO user);
-        Task<UserDTO> GetUser(int? id);
-        Task <IEnumerable<UserDTO>> GetUsers();
-
+        Task Registration(UserDTO user);
+        Task<UserDTO> Login(string password, string email);
     }
 }

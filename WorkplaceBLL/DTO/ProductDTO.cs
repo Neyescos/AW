@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WorkplaceBLL.DTO
 {
-    class ProductDTO
+    public class ProductDTO
     {
         public string Name { get; set; }
         public ImageDTO Picture { get; set; }

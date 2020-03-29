@@ -5,7 +5,7 @@ using WorkplaceDAL.Models;
 
 namespace WorkplaceDAL.Interfaces
 {
-    interface IUnitOfWork:IDisposable
+    public interface IUnitOfWork:IDisposable
     {
         IRepository<User>Users { get; }
         IRepository<Product> Products { get; }
