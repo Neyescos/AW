@@ -11,7 +11,7 @@ namespace WorkplaceDAL.Interfaces
         IRepository<Product> Products { get; }
         IRepository<Image> Images { get; }
         IRepository<Warehouse> Warehouses { get; }
-        IRepository<Role>Roles { get; }
+        
         void Save();
         
     }

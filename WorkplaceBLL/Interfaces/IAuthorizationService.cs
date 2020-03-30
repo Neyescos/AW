@@ -6,7 +6,7 @@ using WorkplaceBLL.DTO;
 
 namespace WorkplaceBLL.Interfaces
 {
-    interface IAuthorizationService
+    public interface IAuthorizationService
     {
         Task Registration(UserDTO user);
         Task<UserDTO> Login(string password, string email);

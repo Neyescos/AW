@@ -6,11 +6,11 @@ using WorkplaceBLL.DTO;
 
 namespace WorkplaceBLL.Interfaces
 {
-    interface IUserServices
+    public interface IUserServices
     {
         Task UpdateUser(UserDTO user);
         Task<UserDTO> GetUser(int? id);
         Task <IEnumerable<UserDTO>> GetUsers();
-
+        Task Delete(int id);
     }
 }

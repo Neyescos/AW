@@ -44,5 +44,18 @@ namespace WorkplaceBLL.Services
             var mapper = new Mapper(config);
             await unit.Products.Create(mapper.Map<ProductDTO, Product>(product));
         }
+
+        public async Task Delete(int id)
+        {
+            await unit.Products.Delete(id);
+            unit.Save();
+            
+        }
+
+        public async Task<ProductDTO> Update(ProductDTO product)
+        {
+            var mapper = new Mapper(config);
+            return await unit.Products.Update(mapper.Map<ProductDTO, Product>(product));
+        }
     }
 }

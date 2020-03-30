@@ -8,5 +8,6 @@ namespace WorkplaceBLL.DTO
     {
         public int Id { get; set; }
         public string Url { get; set; }
+        public ProductDTO ProductId { get; set; }
     }
 }

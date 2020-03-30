@@ -1,40 +1,36 @@
-﻿using AutoMapper;
+﻿using AutomizedWorkplace.Models;
+using AutoMapper;
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 using WorkplaceBLL.DTO;
-using WorkplaceDAL;
-using WorkplaceDAL.Models;
 
-namespace WorkplaceBLL.MapProfiles
+namespace AutomizedWorkplace.MapperProfile
 {
-    public class MyProfile:Profile
+    public class ViewModelProfile:Profile
     {
-        public MyProfile()
+        public ViewModelProfile()
         {
-            CreateMap<UserDTO, User>()
+            CreateMap<UserModel, UserDTO>()
                 .ForMember(
                 dest => dest.Products,
                 opts => opts.MapFrom(src => src.Products));
-            CreateMap<ProductDTO, Product>()
-                .ForMember(
+            CreateMap<ProductModel, ProductDTO>()
+               .ForMember(
                 dest => dest.Picture,
                 opts => opts.MapFrom(src => src.Picture))
-                .ForMember(
+               .ForMember(
                 dest => dest.WarehouseId,
                 opts => opts.MapFrom(src => src.WarehouseId))
-                .ForMember(
+               .ForMember(
                 dest => dest.UserId,
                 opts => opts.MapFrom(src => src.UserId));
-            CreateMap<WarehouseDTO, Warehouse>()
-                .ForMember(
-                dest => dest.Product,
-                opts => opts.MapFrom(src => src.Product));
-            CreateMap<ImageDTO, Image>()
+            CreateMap<ImageModel, ImageDTO>()
                 .ForMember(
                 dest => dest.ProductId,
                 opts => opts.MapFrom(src => src.ProductId));
-           
+               
         }
     }
 }

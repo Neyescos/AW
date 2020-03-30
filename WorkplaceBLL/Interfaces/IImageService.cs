@@ -1,15 +1,15 @@
-﻿using System;
+﻿using WorkplaceBLL.DTO;
+using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using WorkplaceBLL.DTO;
-
 namespace WorkplaceBLL.Interfaces
 {
-    interface IImageService
+    public interface IImageService
     {
-        Task<IEnumerable<ImageDTO>> GetImages(UserDTO user);
-        Task UploadImage(string _appEnvironment, IFormFile image, string user);
+        Task<IEnumerable<ImageDTO>> GetImage(int id);
+        Task UploadImage(string _appEnvironment, IFormFile image);
         Task DeleteImage(int id, string _appEnvironment);
 
     }

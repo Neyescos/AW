@@ -12,7 +12,7 @@ namespace WorkplaceDAL.EF
         public DbSet<Product> Products { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Warehouse> Warehouses { get; set; }
-        public DbSet<Role>Roles { get; set; }
+        
         public WorkPlaceContext()
         {
         }
@@ -22,15 +22,13 @@ namespace WorkplaceDAL.EF
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Role>().HasData(
-                new Role { Name = "User" },
-                new Role { Name = "Moderator"},
-                new Role {Name ="Admin" });
-            modelBuilder.Entity<User>().HasData(new User {
-                Name = "admin", 
-                Password = "admin", 
-                Role = new Role { Id = 3, Name = "Admin" } 
-            });
+
+            modelBuilder.Entity<User>().HasData(new User
+            {
+                Name = "admin",
+                Password = "admin",
+                Role = "Admin"
+            }); ;
 
         }
     }

@@ -6,11 +6,13 @@ using WorkplaceBLL.DTO;
 
 namespace WorkplaceBLL.Interfaces
 {
-    interface IProductService
+    public interface IProductService
     {
         Task MakeProduct(ProductDTO productDTO);
         Task<ProductDTO> GetProduct(int? id);
         Task<IEnumerable<ProductDTO>> GetProducts();
-        
+
+        Task Delete(int id);
+        Task<ProductDTO> Update(ProductDTO product);
     }
 }

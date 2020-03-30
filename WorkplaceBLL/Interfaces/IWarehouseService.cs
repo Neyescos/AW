@@ -6,11 +6,12 @@ using WorkplaceBLL.DTO;
 
 namespace WorkplaceBLL.Interfaces
 {
-    interface IWarehouseService
+    public interface IWarehouseService
     {
         Task MakeWarehouse(WarehouseDTO warehouseDTO);
         Task<WarehouseDTO> GetWarehouse(int? id);
         Task<IEnumerable<WarehouseDTO>> GetWarehouses();
-       
+
+        Task Delete(int id);
     }
 }

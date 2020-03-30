@@ -56,5 +56,11 @@ namespace WorkplaceBLL.Services
             var users = await unit.Users.GetAll();
             return mapper.Map<IEnumerable<UserDTO>>(users);
         }
+
+        public async Task Delete(int id)
+        {
+            await unit.Users.Delete(id);
+            unit.Save();
+        }
     }
 }
