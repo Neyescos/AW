@@ -13,6 +13,6 @@ namespace WorkplaceBLL.Interfaces
         Task<IEnumerable<ProductDTO>> GetProducts();
 
         Task Delete(int id);
-        Task<ProductDTO> Update(ProductDTO product);
+        void Update(ProductDTO product);
     }
 }

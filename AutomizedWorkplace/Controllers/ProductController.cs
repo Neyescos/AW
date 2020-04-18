@@ -18,7 +18,7 @@ namespace AutomizedWorkplace.Controllers
     {
         IMapper mapper;
         IProductService service;
-        public ProductController(IProductService serv,IMapper mapper)
+        public ProductController(IProductService serv, IMapper mapper)
         {
             this.mapper = mapper;
             service = serv;
@@ -39,21 +39,28 @@ namespace AutomizedWorkplace.Controllers
         }
 
         // POST: api/Product
+        [Authorize]
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<IActionResult> Post(ProductModel query)
         {
+            await service.MakeProduct(mapper.Map<ProductDTO>(query));
+            return Ok();
         }
 
         // PUT: api/Product/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [Authorize]
+        [HttpPut]
+        public IActionResult Put(ProductModel product)
         {
+            service.Update(mapper.Map<ProductDTO>(product));
+            return Ok();
         }
 
         // DELETE: api/ApiWithActions/5
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
+            
             await service.Delete(id);
             return Ok();
         }

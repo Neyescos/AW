@@ -52,10 +52,12 @@ namespace WorkplaceBLL.Services
             
         }
 
-        public async Task<ProductDTO> Update(ProductDTO product)
+        public  void Update(ProductDTO product)
         {
             var mapper = new Mapper(config);
-            return await unit.Products.Update(mapper.Map<ProductDTO, Product>(product));
+            unit.Products.Update(mapper.Map<Product>(product));
+            unit.Save();
+
         }
     }
 }

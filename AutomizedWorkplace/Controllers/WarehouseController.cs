@@ -44,17 +44,15 @@ namespace AutomizedWorkplace.Controllers
         // POST: api/Warehouse
         [Authorize]
         [HttpPost]
-        public async Task<IEnumerable<WarehouseModel>> Post(WarehouseModel query)
+        public async Task<IActionResult> Post(WarehouseModel query)
         {
            
-            return mapper.Map<WarehouseModel>(await service.MakeWarehouse(new WorkplaceBLL.DTO.WarehouseDTO { Date = query.Date, Id = query.Id, Product =mapper.Map<ProductModel>( query.Product) })) ;
+            await service.MakeWarehouse(mapper.Map<WarehouseDTO>(query )) ;
+            return Ok();
+
         }
 
-        // PUT: api/Warehouse/5
-        [HttpPut]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
+        
 
         // DELETE: api/ApiWithActions/5
         [Authorize]
