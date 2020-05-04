@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using WorkplaceBLL.DTO;
 using WorkplaceBLL.Interfaces;
@@ -25,10 +26,25 @@ namespace WorkplaceBLL.Services
         });
         public async Task Registration(UserDTO user)
         {
-            var mapper = new Mapper(config);
-            user.Role = "User";
-            await unit.Users.Create(mapper.Map<UserDTO, User>(user));
-            unit.Save();
+            CancellationTokenSource source = new CancellationTokenSource();
+            CancellationToken token = source.Token;
+            var res = unit.Users.Find(x => x.Name == user.Name);
+            res.Start();
+
+            if(res.IsCompletedSuccessfully)
+            {
+                var mapper = new Mapper(config);
+                user.Role = "User";
+                await unit.Users.Create(mapper.Map<UserDTO, User>(user));
+                unit.Save();
+
+            }
+            else
+            {
+                source.Cancel();
+                token = source.Token;
+                return  Task.FromCanceled(token);
+            }
         }
         public async Task<UserDTO> Login(string password, string name)
         {
