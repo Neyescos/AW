@@ -11,7 +11,7 @@ using WorkplaceDAL.Interfaces;
 
 namespace WorkplaceBLL.Services
 {
-    class ProductService : IProductService
+    public class ProductService : IProductService
     {
         readonly IUnitOfWork unit;
 

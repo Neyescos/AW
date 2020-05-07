@@ -26,8 +26,7 @@ namespace WorkplaceBLL.Services
         });
         public async Task Registration(UserDTO user)
         {
-            CancellationTokenSource source = new CancellationTokenSource();
-            CancellationToken token = source.Token;
+            
             var res = unit.Users.Find(x => x.Name == user.Name);
             res.Start();
 
@@ -41,16 +40,20 @@ namespace WorkplaceBLL.Services
             }
             else
             {
-                source.Cancel();
-                token = source.Token;
-                return  Task.FromCanceled(token);
+                bool isCancelled = true;
+                await Task.FromCanceled(new CancellationToken(isCancelled));
             }
         }
         public async Task<UserDTO> Login(string password, string name)
         {
+            
             var mapper = new Mapper(config);
             UserDTO foundedUser = mapper.Map<UserDTO>(await unit.Users.Find(us => us.Name == name));
-            return foundedUser;
+            if (foundedUser.Password == password)
+            {
+                return foundedUser;
+            }
+            return null;
             
         }
 

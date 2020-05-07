@@ -16,6 +16,10 @@ namespace WorkplaceDAL
         private IRepository<Product> productRepository;
         private IRepository<Image> imageRepository;
         private IRepository<Warehouse> warehouseRepository;
+        public UnitOfWork(WorkPlaceContext db)
+        {
+            this.db = db;
+        }
         
         public IRepository<User> Users
         {

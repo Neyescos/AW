@@ -14,7 +14,7 @@ using WorkplaceDAL.Models;
 
 namespace WorkplaceBLL.Services
 {
-    class ImageService : IImageService
+    public class ImageService : IImageService
     {
         readonly IUnitOfWork unit;
         readonly MapperConfiguration config = new MapperConfiguration(mc =>

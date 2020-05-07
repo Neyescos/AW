@@ -12,7 +12,7 @@ using WorkplaceDAL.Models;
 
 namespace WorkplaceBLL.Services
 {
-    class WarehouseService : IWarehouseService
+    public class WarehouseService : IWarehouseService
     {
         readonly IUnitOfWork unit;
 

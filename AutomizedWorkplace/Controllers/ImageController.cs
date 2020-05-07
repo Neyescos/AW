@@ -26,19 +26,13 @@ namespace AutomizedWorkplace.Controllers
             this.mapper = mapper;
         }
         // GET: api/Image
-        [Authorize]
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "value1", "value2" };
-        }
-
+        
         // GET: api/Image/5
         [Authorize]
         [HttpGet]
-        public async Task<ImageModel> Get(int id)
+        public async Task<ImageModel> GetImage(int id)
         {
-          return  mapper.Map<ImageModel>( await service.GetImage(id));
+            return mapper.Map<ImageModel>( await service.GetImage(Convert.ToInt32(id)));
         }
 
         [Authorize]
@@ -48,9 +42,6 @@ namespace AutomizedWorkplace.Controllers
             await service.UploadImage(hostingEnviroment.ContentRootPath,image);
             return Ok();
         }
-
-        
-      
 
         // DELETE: api/ApiWithActions/5
         [Authorize]

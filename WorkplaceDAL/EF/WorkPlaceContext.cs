@@ -28,7 +28,8 @@ namespace WorkplaceDAL.EF
                 Name = "admin",
                 Password = "admin",
                 Role = "Admin"
-            }); ;
+            });
+            modelBuilder.Entity<Image>().HasKey(t => t.Id);
 
         }
     }

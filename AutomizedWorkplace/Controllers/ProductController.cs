@@ -31,13 +31,6 @@ namespace AutomizedWorkplace.Controllers
             return mapper.Map<IEnumerable<ProductModel>>(await service.GetProducts());
         }
 
-        [Authorize]
-        [HttpGet]
-        public async Task<ProductModel> Get(int id)
-        {
-            return mapper.Map<ProductModel>(await service.GetProduct(id));
-        }
-
         // POST: api/Product
         [Authorize]
         [HttpPost]

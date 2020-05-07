@@ -20,8 +20,8 @@ namespace AutomizedWorkplace.Controllers
         IMapper mapper;
         public UserController(IUserServices serv,IMapper map)
         {
-            serv = service;
-            map = mapper;
+            service = serv;
+            mapper = map;
         }
 
 
@@ -35,13 +35,7 @@ namespace AutomizedWorkplace.Controllers
         }
 
         
-        [Authorize]
-        [HttpGet("{id}", Name = "Get")]
-        public async Task<UserModel> Get(int id)
-        {
-            return mapper.Map<UserModel>(await service.GetUser(id));
-        }
-
+        
         
         // PUT: api/User/5
         [Authorize]
