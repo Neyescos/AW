@@ -42,11 +42,13 @@ namespace WorkplaceBLL.Services
         {
             var mapper = new Mapper(config);
             await unit.Warehouses.Create(mapper.Map<WarehouseDTO, Warehouse>(warehouseDTO));
+            unit.Save();
         }
 
         public async Task Delete(int id)
         {
             await unit.Warehouses.Delete(id);
+            unit.Save();
         }
     }
 }

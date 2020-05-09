@@ -7,6 +7,7 @@ namespace WorkplaceBLL.DTO
     public class WarehouseDTO
     {
         public int Id { get; set; }
+        public int ProductId { get; set; }
         public ProductDTO Product { get; set; }
         public DateTime Date { get; set; }
     }

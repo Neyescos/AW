@@ -68,7 +68,7 @@ namespace WorkplaceDAL
         }
         public void Save()
         {
-            throw new NotImplementedException();
+            db.SaveChangesAsync();
         }
 
         private bool disposed = false;

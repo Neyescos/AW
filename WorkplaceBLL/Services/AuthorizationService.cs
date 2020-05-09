@@ -28,7 +28,7 @@ namespace WorkplaceBLL.Services
         {
             
             var res = unit.Users.Find(x => x.Name == user.Name);
-            res.Start();
+            //res.Start();
 
             if(res.IsCompletedSuccessfully)
             {

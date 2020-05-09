@@ -66,7 +66,7 @@ namespace AutomizedWorkplace.Controllers
             }
 
             var result = service.Registration(mapper.Map<UserDTO>(model));
-            result.Start();
+            //result.Start();
 
             if (result.IsCanceled)
             {

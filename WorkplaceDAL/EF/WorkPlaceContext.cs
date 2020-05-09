@@ -13,23 +13,26 @@ namespace WorkplaceDAL.EF
         public DbSet<User> Users { get; set; }
         public DbSet<Warehouse> Warehouses { get; set; }
         
-        public WorkPlaceContext()
-        {
-        }
         public WorkPlaceContext(DbContextOptions options)
             : base(options)
         {
+            Database.EnsureCreated();
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
             modelBuilder.Entity<User>().HasData(new User
             {
+                Id = 1,
                 Name = "admin",
                 Password = "admin",
                 Role = "Admin"
             });
-            modelBuilder.Entity<Image>().HasKey(t => t.Id);
+
+            modelBuilder.Entity<Product>().HasOne(t => t.Picture).WithOne(t => t.Product).HasForeignKey<Image>(t => t.ProductId);
+            modelBuilder.Entity<Product>().HasOne(t => t.WarehouseId).WithOne(t => t.Product).HasForeignKey<Warehouse>(t => t.ProductId);
+            modelBuilder.Entity<Product>().HasOne(t => t.UserId).WithMany(t => t.Products);
+
 
         }
     }

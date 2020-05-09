@@ -33,16 +33,9 @@ namespace AutomizedWorkplace.Controllers
             return mapper.Map<IEnumerable<WarehouseModel>>(await service.GetWarehouses());
         }
 
-        // GET: api/Warehouse/5
-        [Authorize]
-        [HttpGet]
-        public async Task<WarehouseModel> Get(int id)
-        {
-            return mapper.Map<WarehouseModel>(await service.GetWarehouse(id));
-        }
-
+        
         // POST: api/Warehouse
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public async Task<IActionResult> Post(WarehouseModel query)
         {

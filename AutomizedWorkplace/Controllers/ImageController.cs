@@ -35,7 +35,7 @@ namespace AutomizedWorkplace.Controllers
             return mapper.Map<ImageModel>( await service.GetImage(Convert.ToInt32(id)));
         }
 
-        [Authorize]
+       // [Authorize]
         [HttpPost]
         public async Task<IActionResult> Post(IFormFile image)
         {

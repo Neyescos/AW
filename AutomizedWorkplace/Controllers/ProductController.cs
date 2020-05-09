@@ -32,7 +32,7 @@ namespace AutomizedWorkplace.Controllers
         }
 
         // POST: api/Product
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public async Task<IActionResult> Post(ProductModel query)
         {

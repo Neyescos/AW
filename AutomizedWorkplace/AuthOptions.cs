@@ -11,7 +11,7 @@ namespace AutomizedWorkplace
     {
         public const string ISSUER = "MyAuthServer"; // издатель токена
         public const string AUDIENCE = "MyAuthClient"; // потребитель токена
-        const string KEY = "boolshitshit!";   // ключ для шифрации
+        const string KEY = "IFUCKURBOOLSHITSHITFUCK";   // ключ для шифрации
         public const int LIFETIME = 600; // время жизни токена - 600 минут
         public static SymmetricSecurityKey GetSymmetricSecurityKey()
         {
