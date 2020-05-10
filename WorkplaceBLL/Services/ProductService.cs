@@ -42,7 +42,7 @@ namespace WorkplaceBLL.Services
         public async  Task MakeProduct(ProductDTO product)
         {
             var mapper = new Mapper(config);
-            await unit.Products.Create(mapper.Map<ProductDTO, Product>(product));
+            unit.Products.Create(mapper.Map<ProductDTO, Product>(product));
             unit.Save();
         }
 

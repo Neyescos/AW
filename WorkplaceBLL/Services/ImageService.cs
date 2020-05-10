@@ -52,7 +52,7 @@ namespace WorkplaceBLL.Services
                 await image.CopyToAsync(fileStream);
             }
             Image uploadedImage = new Image { Url = "https://localhost:44340" + path};
-            await unit.Images.Create(uploadedImage);
+            unit.Images.Create(uploadedImage);
         }
 
     }

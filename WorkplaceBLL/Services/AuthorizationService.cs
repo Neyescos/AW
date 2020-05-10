@@ -27,14 +27,14 @@ namespace WorkplaceBLL.Services
         public async Task Registration(UserDTO user)
         {
             
-            var res = unit.Users.Find(x => x.Name == user.Name);
-            //res.Start();
+             var result =await unit.Users.Find(x => x.Name == user.Name);
+            
 
-            if(res.IsCompletedSuccessfully)
+            if(result==null)
             {
                 var mapper = new Mapper(config);
                 user.Role = "User";
-                await unit.Users.Create(mapper.Map<UserDTO, User>(user));
+                unit.Users.Create(mapper.Map<UserDTO, User>(user));
                 unit.Save();
 
             }

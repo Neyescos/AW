@@ -41,7 +41,7 @@ namespace WorkplaceBLL.Services
         public async Task MakeWarehouse(WarehouseDTO warehouseDTO)
         {
             var mapper = new Mapper(config);
-            await unit.Warehouses.Create(mapper.Map<WarehouseDTO, Warehouse>(warehouseDTO));
+            unit.Warehouses.Create(mapper.Map<WarehouseDTO, Warehouse>(warehouseDTO));
             unit.Save();
         }
 

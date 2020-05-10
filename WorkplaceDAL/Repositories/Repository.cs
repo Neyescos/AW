@@ -20,9 +20,9 @@ namespace WorkplaceDAL.Repositories
             dbSet = context.Set<T>();
         }
 
-        public async Task Create(T item)
+        public void Create(T item)
         {
-            await dbSet.AddAsync(item);
+             dbSet.Add(item);
         }
 
         public async Task Delete(int id)

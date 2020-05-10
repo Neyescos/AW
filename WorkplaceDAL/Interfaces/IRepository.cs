@@ -8,7 +8,7 @@ namespace WorkplaceDAL.Interfaces
 {
     public interface IRepository<T>where T :class
     {
-        Task Create(T item);
+        void Create(T item);
         void Update(T item);
         Task Delete(int id);
         Task<IEnumerable<T>> GetAll(params Expression<Func<T, object>>[] includes);

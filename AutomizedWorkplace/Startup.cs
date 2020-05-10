@@ -35,7 +35,7 @@ namespace AutomizedWorkplace
         public void ConfigureServices(IServiceCollection services)
         {
             string connection = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<WorkPlaceContext>(options => options.UseSqlServer(connection));
+            services.AddDbContext<WorkPlaceContext>(options => options.UseSqlServer(connection).EnableSensitiveDataLogging());
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             
             services.AddTransient<IAuthorizationService,AuthorizationService>();
@@ -76,6 +76,7 @@ namespace AutomizedWorkplace
                        };
                    });
             services.AddControllers();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
